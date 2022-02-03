@@ -1,4 +1,7 @@
 data/*
 
+//pycharm
 src/__pycache__/*
+src/.idea/*
+
 .ipynb_checkpoints/*
