@@ -1,10 +1,12 @@
 import pandas as pd
+import cv2
+from skimage import exposure, transform
 
 
 class Reader:
     df = pd.DataFrame()
 
-    def read_data(self, folders=43, pre_path=r"./data/"):
+    def read_data_to_df(self, folders=43, pre_path=r"./data/"):
 
         for i in range(0, folders):
             if i < 10:
@@ -19,4 +21,16 @@ class Reader:
         self.df.reset_index(inplace=True)
         self.df.drop("index", axis=1, inplace=True)
         return self.df
-    
+
+    def read_preprocess_img(self, image_path, size, x, y, h, w):
+        image = cv2.imread(image_path)
+        image = image[y:y + h, x:x + w]
+        image = cv2.resize(image, size)  # transform.resize??
+        image = exposure.equalize_adapthist(image, clip_limit=0.05)
+        return image
+
+    def read_img(self, image_path, clahe=True):
+        image = cv2.imread(image_path)
+        if clahe:
+            image = exposure.equalize_adapthist(image, clip_limit=0.05)
+        return image
