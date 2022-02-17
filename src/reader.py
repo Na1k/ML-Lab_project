@@ -34,3 +34,11 @@ class Reader:
         if clahe:
             image = exposure.equalize_adapthist(image, clip_limit=0.05)
         return image
+        
+    def read_preprocess_img_without_bounding(self, image_path, size, clahe=True, bounding=None):
+        image = cv2.imread(image_path)
+        if bounding is not None:
+            image = image[bounding[1]:bounding[1] + bounding[2], bounding[0]:bounding[0] + bounding[3]]
+        image = cv2.resize(image, size)  # transform.resize??
+        if clahe: image = exposure.equalize_adapthist(image, clip_limit=0.05)
+        return image
