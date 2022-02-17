@@ -24,9 +24,9 @@ class Reader:
 
     def read_preprocess_img(self, image_path, size, x, y, h, w):
         image = cv2.imread(image_path)
-        image = image[y:y + h, x:x + w]
+        image = image[y:y + h, x:x + w]  # crop image to BB
         image = cv2.resize(image, size)  # transform.resize??
-        image = exposure.equalize_adapthist(image, clip_limit=0.05)
+        image = exposure.equalize_adapthist(image, clip_limit=0.05)     # CLAHE
         return image
 
     def read_img(self, image_path, clahe=True):
