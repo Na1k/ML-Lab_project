@@ -12,7 +12,8 @@ def create_collage(collage_path, df):
     for index, row in df.iterrows():
         if index > 0 and index % 500 == 0:
             image = load_img(row["Folder"] + row["Filename"])
-            image = image.crop((row["Roi.X1"], row["Roi.Y1"], row["Roi.X2"], row["Roi.Y2"]))
+            image = image.crop(
+                (row["Roi.X1"], row["Roi.Y1"], row["Roi.X2"], row["Roi.Y2"]))
             image = image.resize((100, 100))
             collage.paste(image, (x, y))
             x += 100
@@ -31,7 +32,8 @@ def create_preprocessed_collage(collage_path, df):
             y = row["Roi.Y1"]
             h = row["Roi.Y2"] - row["Roi.Y1"]
             w = row["Roi.X2"] - row["Roi.X1"]
-            image = Reader.read_preprocess_img(Reader, row["Folder"] + row["Filename"], (100, 100), x, y, h, w)
+            image = Reader.read_preprocess_img(
+                Reader, row["Folder"] + row["Filename"], (100, 100), x, y, h, w)
             line.append(image)
             if len(line) == 13:
                 columns.append(np.hstack(line))
