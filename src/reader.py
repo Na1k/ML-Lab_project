@@ -22,6 +22,13 @@ class Reader:
         self.df.drop("index", axis=1, inplace=True)
         return self.df
 
+    def read_test_data_to_df(self, pre_path=r"./test_data/", csv_name=r"gt.txt"):
+
+        df = pd.read_csv(pre_path+csv_name, sep=";", names=["Filename", "Roi.X1", "Roi.Y1", "Roi.X2", "Roi.Y2", "ClassId"])
+        df.reset_index(inplace=True)
+        df.drop("index", axis=1, inplace=True)
+        return df
+
     def read_preprocess_img(self, image_path, size, x, y, h, w):
         image = cv2.imread(image_path)
         image = image[y:y + h, x:x + w]  # crop image to BB

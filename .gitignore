@@ -6,3 +6,7 @@ src/__pycache__/*
 src/.idea/*
 
 .ipynb_checkpoints/*
+
+data_preprocessed/*
+kt_signdetection_network/*
+test_data/*
