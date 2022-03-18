@@ -1,0 +1,56 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+
+train: /content/dataset/images/train/  # train images 
+val: /content/dataset/images/test/ # val images
+
+
+# Classes
+nc: 43  # number of classes
+
+names: [
+'Geschwindigkeitsbegrenzung (20km/h)',
+'Geschwindigkeitsbegrenzung (30km/h)',      
+'Geschwindigkeitsbegrenzung (50km/h)',       
+'Geschwindigkeitsbegrenzung (60km/h)',      
+'Geschwindigkeitsbegrenzung (70km/h)',    
+'Geschwindigkeitsbegrenzung (80km/h)',      
+'Ende der Geschwindigkeitsbegrenzung (80km/h)',     
+'Geschwindigkeitsbegrenzung (100km/h)',    
+'Geschwindigkeitsbegrenzung (120km/h)',     
+'Ueberholverbot',   
+'Ueberholverbot >3.5t',     
+'Vorfahrt naechste Kreuzung',     
+'Vorfahrtsstrasse',    
+'Vorfahrt gewaehren',     
+'Stop',       
+'Verbot fuer Fahrzeuge aller Art',       
+'Verbot fuer Fahrzeuge >3.5t',       
+'Verbot der Einfahrt',       
+'Gefahrenstelle',     
+'Kurve (links)',      
+'Kurve (rechts)',   
+'Doppelkurve',      
+'Unebene Fahrbahn',     
+'Schleuder-/Rutschgefahr',       
+'Einseitig (rechts) verengte Fahrbahn',  
+'Arbeitsstelle',    
+'Lichtzeichenanlage',    
+'Fussgaenger',     
+'Kinder',     
+'Radfahrer',       
+'Schnee-/Eisglaette',
+'Wildwechsel',      
+'Ende saemtlicher Geschw-begr./Ueberholverb.',      
+'Vorgeschriebene Fahrtrichtung rechts',     
+'Vorgeschriebene Fahrtrichtung links',       
+'Vorgeschriebene Fahrtrichtung gerade',      
+'Vorgeschriebene Fahrtrichtung gerade/rechts',      
+'Vorgeschriebene Fahrtrichtung gerade/links',      
+'Vorgeschriebene Vorbeifahrt rechts vorbei',     
+'Vorgeschriebene Vorbeifahrt rechts vorbei',      
+'Kreisverkehr',     
+'Ende Ueberholverbot',      
+'Ende Ueberholverbot >3.5t'
+        ]  # class names
+
+
