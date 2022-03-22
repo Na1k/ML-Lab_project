@@ -31,7 +31,7 @@ def _get_bg_images(path_to_bg_img_folder, size):
     
     
 def generate_raster_sign_image(number_of_images, number_of_signs, path_to_bg_img_folder, pre_path_sign, 
-                                sign_size, raster_width, raster_height, sign_with_clahe, verbose=False, show_images=False):
+                                sign_size, raster_width, raster_height, sign_with_clahe, show_images=False):
 
     all_samples = [(a, b) for a in range(raster_width) for b in range(raster_height)]
     sign_df = Reader().read_data_to_df(folders=43, pre_path=pre_path_sign)
@@ -54,7 +54,8 @@ def generate_raster_sign_image(number_of_images, number_of_signs, path_to_bg_img
         labels.append(label)
         data.append(img)
         
-        if verbose: print(label)
+        if i % 250 == 0:
+        	print("Iterated through", i, "signs")
         if show_images:
             for bounding in label:
                 bounding = tuple(map(int, bounding))
