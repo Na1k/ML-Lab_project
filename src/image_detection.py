@@ -25,3 +25,16 @@ def predict_and_display_img(model, image, bounding):
     cv2.namedWindow('Output', cv2.WINDOW_NORMAL)
     cv2.imshow("Output", image)
     cv2.waitKey(0)
+	
+def show_bounding_box(image, bounding):
+	h, w = image.shape[:2]
+	(r_x1, r_y1, r_x2, r_y2) = bounding
+	r_x1 = int(r_x1 * w)
+	r_y1 = int(r_y1 * h)
+	r_x2 = int(r_x2 * w)
+	r_y2 = int(r_y2 * h)
+	cv2.rectangle(image, (r_x1, r_y1), (r_x2, r_y2), (0, 0, 255), 1)
+	cv2.namedWindow('Output', cv2.WINDOW_NORMAL)
+	cv2.imshow("Output", image)
+	cv2.waitKey(0)
+	
